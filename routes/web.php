@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/product/{id}','ProductController@show');
+
+
+Route::get('/newproduct','ProductController@newProduct');
+
+Route::get('/products','ProductController@listProducts');
