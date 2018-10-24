@@ -14,4 +14,9 @@ class Product extends Model
     {
       return $this->belongsTo('App\Cat');
     }
+    public function users()
+    {
+      return $this->belongsToMany('App\User');
+    }
+
 }
