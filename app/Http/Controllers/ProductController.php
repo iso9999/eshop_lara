@@ -26,9 +26,49 @@ class ProductController extends Controller
       $newProduct->save();
     }
 
-    public function listProducts()
+
+
+    //list product
+    public function list()
     {
       $products = Product::all();
       return view('products',['products' => $products]);
+    }
+
+    //get one by id
+    public function index()
+    {
+
+    }
+
+    //create form
+    public function create()
+    {
+
+    }
+
+    //save product
+    public function store(Request $request)
+    {
+
+    }
+
+    //update form
+    public function edit()
+    {
+
+    }
+
+
+    //update
+    public function update()
+    {
+
+    }
+
+    //delete / arch
+    public function destroy()
+    {
+
     }
 }
