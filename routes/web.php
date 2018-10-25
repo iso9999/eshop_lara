@@ -13,6 +13,9 @@
 
 
 // tests
+Route::get('/init','ProductController@init');
+
+//other
 Route::get('/', function () {
     return view('welcome');
 });
