@@ -41,7 +41,7 @@ class ProductController extends Controller
       $newProduct->price=999.99;
       $newProduct->quantity=10;
       $newProduct->description="Hello HP comp";
-      $newProduct->cat=$cat1;
+      $newProduct->cat_id=Cat::find(1)->id;
       $newProduct->save();
 
       $newProduct2 = new Product();
@@ -49,7 +49,7 @@ class ProductController extends Controller
       $newProduct2->price=299.99;
       $newProduct2->quantity=1004;
       $newProduct2->description="Hello prod T-shirt";
-      $newProduct2->cat=$cat2;
+      $newProduct2->cat_id=Cat::find(2)->id;
       $newProduct2->save();
 
       $newProduct2 = new Product();
@@ -57,18 +57,18 @@ class ProductController extends Controller
       $newProduct2->price=99.99;
       $newProduct2->quantity=1000;
       $newProduct2->description="Hello prod T-shirt";
-      $newProduct2->cat=$cat2;
+      $newProduct2->cat_id=Cat::find(2)->id;
       $newProduct2->save();
     }
 
 
 
     //list product
-    public function list()
-    {
-      $products = Product::all();
-      return view('products',['products' => $products]);
-    }
+    //public function list()
+    //{
+    //  $products = Product::all();
+    //  return view('products',['products' => $products]);
+    //}
 
     //get one by id
     public function index()

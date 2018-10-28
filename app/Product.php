@@ -8,7 +8,7 @@ class Product extends Model
 {
     public function orders()
     {
-      return $this->belongsToMany('App\Order');
+      return $this->belongsToMany('App\Order')->withTimestamps()->withPivot('quantity');
     }
     public function cat()
     {
@@ -16,7 +16,7 @@ class Product extends Model
     }
     public function users()
     {
-      return $this->belongsToMany('App\User');
+      return $this->belongsToMany('App\User')->withTimestamps()->withPivot('quantity')->as('card');
     }
 
 }
