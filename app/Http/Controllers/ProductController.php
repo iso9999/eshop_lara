@@ -27,6 +27,7 @@ class ProductController extends Controller
       $newProduct->save();
     }
 
+
     public function init()
     {
       $cat1 = new Cat();
@@ -70,10 +71,14 @@ class ProductController extends Controller
     //  return view('products',['products' => $products]);
     //}
 
-    //get one by id
-    public function index()
-    {
 
+    //get one by id
+    public function index($id)
+    {
+        $product = Product::find($id);
+        $category = Cat::find($product->cat_id);
+        //return $product;
+        return view('product.index',['product' => $product ,'category' => $category]);
     }
 
     //create form

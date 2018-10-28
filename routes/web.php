@@ -20,8 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/product/{id}','ProductController@show');
-
 
 Route::get('/newproduct','ProductController@newProduct');
 
@@ -34,7 +32,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 ////// our app roots
 
 Route::get('/products','ProductController@list');
-Route::get('/products{id}','ProductController@index');
+Route::get('/products/{id}','ProductController@index');
 Route::get('/products/create','ProductController@create');
 Route::post('/products','ProductController@store');
 Route::get('/products/{id}/edit','ProductController@edit');
