@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 
-@section('title', 'Product')
+@section('title', $product->label)
 
 @section('content')
 <!-- banner -->
@@ -119,7 +119,7 @@
         <div class="shoe single-item single_page_b">
           <form action="#" method="post">
             <input type="hidden" name="cmd" value="_cart">
-            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="add" value="{{$product->label}}">
             <input type="hidden" name="shoe_item" value="{{$product->label}}">
             <input type="hidden" name="amount" value="{{$product->price}}">
             <input type="submit" name="submit" value="Add to cart" class="button add">

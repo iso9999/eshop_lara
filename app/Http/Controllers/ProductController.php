@@ -71,6 +71,11 @@ class ProductController extends Controller
     //  return view('products',['products' => $products]);
     //}
 
+    public function listall()
+    {
+      $products = Product::all();
+      return view('product.products',['products' => $products]);
+    }
 
     //get one by id
     public function index($id)
@@ -84,31 +89,54 @@ class ProductController extends Controller
     //create form
     public function create()
     {
-
+        return view('product.create');
     }
 
     //save product
     public function store(Request $request)
     {
 
+        $newProduct = new Product();
+        $newProduct->label=$request->input('label');
+        $newProduct->price=$request->input('price');
+        $newProduct->quantity=$request->input('quantity');
+        $newProduct->description=$request->input('description');
+        $newProduct->cat_id=Cat::find(1)->id;
+        $newProduct->save();
+        return redirect('products/list_table');
     }
 
-    //update form
-    public function edit()
+    public function list_table()
     {
-
+      $products = Product::all();
+      return view('product.list_table',['products' => $products]);
+    }
+    //update form
+    public function edit($id)
+    {
+      $product = Product::find($id);
+      //return $product;
+      return view('product.edit',['product' => $product]);
     }
 
 
     //update
-    public function update()
+    public function update(Request $request,$id)
     {
-
+        $product = Product::find($id);
+        $product->label=$request->input('label');
+        $product->price=$request->input('price');
+        $product->quantity=$request->input('quantity');
+        $product->description=$request->input('description');
+        $product->save();
+        return redirect('products/list_table');
     }
 
     //delete / arch
-    public function destroy()
+    public function destroy(Request $request,$id)
     {
-
+      $product = Product::find($id);
+      $product->delete();
+      return redirect('products/list_table');
     }
 }
